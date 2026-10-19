@@ -1,366 +1,355 @@
-import {
-  ArrowDown,
-  ArrowUpRight,
-  Code2,
-  Mail,
-  MapPin,
-  Sparkles,
-} from "lucide-react";
-
-function GithubMark({ size = 18 }: { size?: number }) {
-  return (
-    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.29-1.24-1.63-1.24-1.63-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 1.72 2.61 1.22 3.25.94.1-.73.39-1.22.71-1.5-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.44-2.22 1.16-3-.12-.29-.5-1.43.11-2.97 0 0 .95-.3 3.05 1.15a10.6 10.6 0 0 1 5.56 0c2.1-1.45 3.04-1.15 3.04-1.15.61 1.54.23 2.68.12 2.97.72.78 1.15 1.78 1.15 3 0 4.29-2.61 5.23-5.1 5.51.4.35.76 1.02.76 2.06v3.09c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z" />
-    </svg>
-  );
-}
-
-function LinkedinMark({ size = 17 }: { size?: number }) {
-  return (
-    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.45H4.96V9h2.97v9.45ZM6.45 7.71a1.72 1.72 0 1 1 .02-3.44 1.72 1.72 0 0 1-.02 3.44Zm12 10.74h-2.96v-4.6c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.78 1.2-1.78 2.44v4.68H9.2V9h2.84v1.29h.04a3.1 3.1 0 0 1 2.8-1.54c3 0 3.57 1.97 3.57 4.53v5.17Z" />
-    </svg>
-  );
-}
-
-const skills = [
-  {
-    label: "Languages",
-    items: ["C#", "Java", "TypeScript", "Python", "SQL"],
-  },
-  {
-    label: "Frameworks",
-    items: [".NET", "ASP.NET Core", "Spring Boot", "NestJS", "Next.js", "FastAPI"],
-  },
-  {
-    label: "Data & infrastructure",
-    items: ["PostgreSQL", "Redis", "pgvector", "REST APIs", "SQLite"],
-  },
-];
-
-const projects = [
-  {
-    number: "01",
-    name: "The Scout",
-    subtitle: "Intelligent Transfer Engine",
-    description:
-      "A modular ML recommendation platform that surfaces football transfer targets within real-world financial constraints.",
-    architecture: [
-      "Spring Boot API with a FastAPI inference layer",
-      "PostgreSQL and pgvector-powered retrieval",
-      "Redis LRU caching for fast repeat requests",
-    ],
-    impact: [
-      "Two-Tower model trained across 1,050 players and 49 clubs",
-      "Repeat-request latency reduced from 450ms to 25ms",
-      "Average Recall@10 of approximately 0.4 on historical data",
-    ],
-    technologies: ["Spring Boot", "FastAPI", "PostgreSQL", "Redis", "Machine learning"],
-    visual: "scout-visual",
-  },
-  {
-    number: "02",
-    name: "3ngage",
-    subtitle: "Engagement Platform",
-    description:
-      "A multi-tenant SaaS platform for event-driven marketing campaigns and real-time client interactions.",
-    architecture: [
-      "TypeScript and NestJS backend with a Next.js dashboard",
-      "Lightweight browser SDK for client-side injection",
-      "Tenant isolation, role-based access, and OAuth",
-    ],
-    impact: [
-      "Client-side avatar deployed across 9-page web environments",
-      "Extensible rule engine built for targeted triggers",
-      "Processed and visualized 12 events per minute in real time",
-    ],
-    technologies: ["TypeScript", "NestJS", "Next.js", "OAuth", "Event-driven"],
-    visual: "engage-visual",
-  },
-];
+import { Mail, Download, ArrowUpRight, Server, Cpu, Activity, Database, GraduationCap, Code2 } from 'lucide-react';
+import { ScrollEffects } from './scroll-effects';
 
 export default function Portfolio() {
+  const currentYear = 2026;
+
   return (
-    <main className="portfolio-shell">
-      <nav className="site-nav page-width" aria-label="Main navigation">
-        <a className="wordmark" href="#top" aria-label="Shiven Mahajan, home">
-          <span className="wordmark-mark">S</span>
-          <span>SHIVEN MAHAJAN</span>
-        </a>
-        <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#work">Selected work</a>
-          <a className="nav-contact" href="#contact">
-            Let&apos;s talk <ArrowUpRight size={15} aria-hidden="true" />
+    <div className="portfolio-page min-h-screen text-zinc-900 pb-24">
+      <ScrollEffects />
+      <div className="scroll-progress" aria-hidden="true" />
+      <nav className="site-nav max-w-6xl mx-auto px-6 py-8 flex justify-between items-center" aria-label="Main navigation">
+        <a href="#top" className="wordmark" aria-label="Shiven Mahajan, back to top">SM<span>.</span></a>
+        <div className="nav-links flex items-center gap-6 text-sm text-zinc-600">
+          <a href="#approach" className="transition-colors hover:text-zinc-900">Approach</a>
+          <a href="#projects" className="transition-colors hover:text-zinc-900">Work</a>
+          <a href="#academics" className="transition-colors hover:text-zinc-900">Background</a>
+          <a href="#contact" className="transition-colors hover:text-zinc-900">Contact</a>
+          <a href="/ShivenMahajan.pdf" download="ShivenMahajan.pdf" className="nav-resume">
+            <Download size={15} aria-hidden="true" /> Resume
           </a>
         </div>
       </nav>
+      <nav className="chapter-nav" aria-label="Case study chapters">
+        <a href="#case-01" aria-label="Chapter 1: Throughput optimization" aria-current="step">01</a>
+        <a href="#case-02" aria-label="Chapter 2: Multi-tenant platform">02</a>
+        <a href="#case-03" aria-label="Chapter 3: Product intelligence">03</a>
+        <a href="#case-04" aria-label="Chapter 4: Hardware capstone">04</a>
+      </nav>
 
-      <section className="hero page-width" id="top">
-        <div className="hero-copy">
-          <p className="eyebrow hero-eyebrow">
-            <span className="status-dot" />
-            SOFTWARE ENGINEER <span className="eyebrow-divider">/</span> HYDERABAD, INDIA
-          </p>
-          <h1>
-            I build the
-            <br />
-            <span className="hero-highlight">systems</span> behind
-            <br />
-            better ideas.
-          </h1>
-          <p className="hero-description">
-            Backend &amp; full-stack engineer focused on scalable platforms,
-            thoughtful architecture, and software that makes complex work feel
-            simple.
-          </p>
-          <div className="hero-actions">
-            <a className="button button-lime" href="#work">
-              Explore my work <ArrowDown size={16} aria-hidden="true" />
-            </a>
-            <a className="text-link hero-resume" href="/ShivenMahajan.pdf" target="_blank" rel="noreferrer">
-              View résumé <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
-          </div>
-          <div className="hero-location">
-            <MapPin size={15} aria-hidden="true" />
-            <span>Building from Hyderabad, India</span>
-          </div>
-        </div>
-
-        <div className="hero-art" aria-hidden="true">
-          <div className="art-topline">
-            <span>THOUGHTFUL BY DESIGN</span>
-            <Sparkles size={15} aria-hidden="true" />
-          </div>
-          <div className="art-orbit orbit-outer" />
-          <div className="art-orbit orbit-inner" />
-          <div className="art-crosshair crosshair-one" />
-          <div className="art-crosshair crosshair-two" />
-          <div className="art-core">
-            <span className="art-core-label">ENGINEER</span>
-            <span className="art-core-mark">SM</span>
-            <span className="art-core-caption">IDEAS INTO SYSTEMS</span>
-          </div>
-          <span className="orbit-node node-one" />
-          <span className="orbit-node node-two" />
-          <span className="orbit-node node-three" />
-          <div className="art-bottomline">
-            <span>API</span>
-            <span>DATA</span>
-            <span>PRODUCT</span>
-          </div>
-        </div>
-
-        <a className="hero-scroll" href="#about">
-          <span>SCROLL TO EXPLORE</span>
-          <ArrowDown size={14} aria-hidden="true" />
-        </a>
-      </section>
-
-      <section className="proof-strip" aria-label="Selected engineering impact">
-        <div className="proof-inner page-width">
-          <div className="proof-intro">
-            <span className="proof-kicker">ENGINEERING THAT</span>
-            <span>moves the needle.</span>
-          </div>
-          <div className="proof-stat">
-            <strong>50<span>+</span></strong>
-            <span>database tables streamlined</span>
-          </div>
-          <div className="proof-stat">
-            <strong>100<span>k+</span></strong>
-            <span>tracking codes migrated</span>
-          </div>
-          <div className="proof-stat">
-            <strong>18<span>×</span></strong>
-            <span>faster repeat requests</span>
-          </div>
-        </div>
-      </section>
-
-      <section className="about-section page-width" id="about">
-        <div className="section-heading">
-          <p className="eyebrow"><span className="section-index">01</span> A LITTLE ABOUT ME</p>
-          <h2>Curious by nature.<br />Engineer by craft.</h2>
-        </div>
-        <div className="about-content">
-          <p className="about-lede">
-            I turn complicated challenges into clear, dependable software.
-          </p>
-          <p className="about-body">
-            I enjoy working at the intersection of backend engineering and
-            product thinking: designing resilient APIs, tuning data-heavy
-            workflows, and connecting the pieces that help teams move faster.
-            From event-driven platforms to intelligent recommendations, I care
-            about making the details work beautifully.
-          </p>
-          <div className="skills-grid">
-            {skills.map((group) => (
-              <div className="skill-group" key={group.label}>
-                <h3>{group.label}</h3>
-                <ul>
-                  {group.items.map((item) => <li key={item}>{item}</li>)}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="work-section" id="work">
-        <div className="page-width">
-          <div className="work-heading">
-            <div className="section-heading">
-              <p className="eyebrow"><span className="section-index">02</span> SELECTED WORK</p>
-              <h2>Good ideas,<br />built to work.</h2>
-            </div>
-            <p className="work-intro">
-              A few projects where thoughtful engineering met a real-world
-              problem.
-            </p>
-          </div>
-
-          <div className="project-list">
-            {projects.map((project) => (
-              <article className="project-card" key={project.number}>
-                <div className={`project-visual ${project.visual}`} aria-hidden="true">
-                  {project.visual === "scout-visual" ? (
-                    <>
-                      <div className="scout-grid" />
-                      <div className="scout-pitch">
-                        <span className="pitch-circle" />
-                        <span className="pitch-line" />
-                        <span className="pitch-point point-a" />
-                        <span className="pitch-point point-b" />
-                        <span className="pitch-point point-c" />
-                        <span className="pitch-point point-d" />
-                        <span className="pitch-point point-e" />
-                        <span className="pitch-point point-f" />
-                      </div>
-                      <div className="visual-label visual-label-top">SCOUT / RECOMMENDATION ENGINE</div>
-                      <div className="scout-result">
-                        <span className="result-avatar">AM</span>
-                        <span><b>Player match</b><small>92% compatibility</small></span>
-                        <span className="result-score">A+</span>
-                      </div>
-                      <span className="visual-coordinate">51°30&apos;N / 00°07&apos;W</span>
-                    </>
-                  ) : (
-                    <>
-                      <div className="engage-glow" />
-                      <div className="engage-window">
-                        <div className="window-bar">
-                          <span /><span /><span />
-                          <small>3ngage / live events</small>
-                        </div>
-                        <div className="window-content">
-                          <span className="window-kicker">CAMPAIGN OVERVIEW</span>
-                          <strong>Every moment,<br />more meaningful.</strong>
-                          <div className="event-chart">
-                            <span /><span /><span /><span /><span /><span /><span /><span /><span />
-                          </div>
-                          <div className="event-foot">
-                            <span><i /> EVENTS / MIN</span>
-                            <b>12.0</b>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="engage-badge">
-                        <span className="badge-pulse" /> REAL-TIME
-                      </div>
-                      <span className="visual-coordinate">ONE PLATFORM / MANY POSSIBILITIES</span>
-                    </>
-                  )}
-                </div>
-
-                <div className="project-details">
-                  <div className="project-title-row">
-                    <div>
-                      <p className="project-number">PROJECT / {project.number}</p>
-                      <h3>{project.name}<span>{project.subtitle}</span></h3>
-                    </div>
-                    <a
-                      className="project-link"
-                      href="https://github.com/shiven49"
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`View ${project.name} source on GitHub`}
-                    >
-                      <GithubMark size={18} />
-                      <span>View source</span>
-                      <ArrowUpRight size={16} aria-hidden="true" />
-                    </a>
-                  </div>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-info-grid">
-                    <div>
-                      <h4><Code2 size={15} aria-hidden="true" /> ARCHITECTURE</h4>
-                      <ul>
-                        {project.architecture.map((item) => <li key={item}>{item}</li>)}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4><Sparkles size={15} aria-hidden="true" /> OUTCOMES</h4>
-                      <ul>
-                        {project.impact.map((item) => <li key={item}>{item}</li>)}
-                      </ul>
-                    </div>
-                  </div>
-                  <ul className="project-tags" aria-label="Technologies">
-                    {project.technologies.map((item) => <li key={item}>{item}</li>)}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="contact-section page-width" id="contact">
-        <div className="contact-card">
-          <div className="contact-topline">
-            <p className="eyebrow"><span className="section-index">03</span> HAVE A GOOD PROBLEM?</p>
-            <span className="contact-star" aria-hidden="true">✳</span>
-          </div>
-          <div className="contact-main">
-            <h2>Let&apos;s make<br />something <span>matter.</span></h2>
-            <div className="contact-aside">
-              <p>
-                Have a project in mind, an interesting challenge, or just want
-                to talk engineering? My inbox is open.
+      <header id="top" className="max-w-6xl mx-auto px-6 py-12 md:py-16">
+        <div className="hero-panel">
+          <div className="grid lg:grid-cols-[1.45fr_0.95fr] gap-10 items-center">
+            <div>
+              <p className="hero-eyebrow text-[11px] font-semibold uppercase tracking-[0.28em] mb-5">
+                <span className="availability-dot" aria-hidden="true" /> BACKEND SYSTEMS <span>/</span> DATA PRODUCTS <span>/</span> PLATFORM ENGINEERING
               </p>
-              <a className="button button-dark" href="mailto:shivxnmahajan@gmail.com">
-                <Mail size={17} aria-hidden="true" /> Say hello
-                <ArrowUpRight size={17} aria-hidden="true" />
-              </a>
+              <h1 className="hero-title text-5xl md:text-7xl font-bold tracking-[-0.07em] leading-[0.92] mb-6 text-zinc-900">
+                Shiven <span>Mahajan</span>
+              </h1>
+              <h2 className="hero-statement text-2xl md:text-3xl font-medium tracking-tight mb-8 leading-snug">
+                I build the systems that help ambitious products scale without breaking.
+              </h2>
+              <p className="hero-description text-lg max-w-2xl leading-relaxed mb-10">
+                I design backend platforms, product-critical APIs, and data systems that turn noisy operational complexity into dependable software. My work sits at the intersection of architecture, systems thinking, and execution — where ideas become resilient infrastructure people can trust.
+              </p>
+
+              <div className="hero-actions flex flex-wrap gap-4">
+                <a href="https://github.com/shiven49" target="_blank" rel="noreferrer" className="action-button action-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2C6.477 2 2 6.58 2 12.217c0 4.5 2.865 8.314 6.839 9.665.5.092.682-.217.682-.482 0-.237-.009-.866-.014-1.7-2.782.606-3.369-1.34-3.369-1.34-.455-1.156-1.111-1.464-1.111-1.464-.908-.621.069-.608.069-.608 1.004.07 1.532 1.031 1.532 1.031.892 1.529 2.341 1.088 2.912.832.091-.647.349-1.088.634-1.338-2.22-.253-4.555-1.111-4.555-4.942 0-1.092.39-1.986 1.029-2.684-.103-.253-.446-1.275.098-2.656 0 0 .84-.269 2.75 1.026A9.56 9.56 0 0 1 12 6.84c.851.004 1.708.115 2.508.337 1.909-1.295 2.749-1.026 2.749-1.026.545 1.381.202 2.403.1 2.656.64.698 1.028 1.592 1.028 2.684 0 3.839-2.338 4.686-4.566 4.934.359.31.68.922.68 1.856 0 1.338-.012 2.417-.012 2.747 0 .268.18.578.688.48A10.02 10.02 0 0 0 22 12.217C22 6.58 17.523 2 12 2Z" />
+                  </svg>
+                  GitHub <ArrowUpRight size={15} aria-hidden="true" />
+                </a>
+
+                <a href="/ShivenMahajan.pdf" download="ShivenMahajan.pdf" className="action-button action-secondary">
+                  <Download size={16} aria-hidden="true" /> Download resume
+                </a>
+
+                <a href="https://linkedin.com/in/shivenmahajan" target="_blank" rel="noreferrer" className="action-button action-tertiary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.4a1.56 1.56 0 0 1 0 3.1ZM5.5 9.8h2.86v9.7H5.5V9.8Zm5.53 0h2.74v1.33h.04c.38-.72 1.3-1.47 2.67-1.47 2.85 0 3.37 1.87 3.37 4.3v5.54h-2.86v-5.2c0-1.24-.02-2.82-1.72-2.82-1.73 0-1.99 1.35-1.99 2.74v5.28H11.03V9.8Z"/>
+                  </svg>
+                  LinkedIn <ArrowUpRight size={15} aria-hidden="true" />
+                </a>
+
+                <a href="mailto:shivxnmahajan@gmail.com" className="action-button action-tertiary">
+                  <Mail size={16} aria-hidden="true" /> Email
+                </a>
+              </div>
             </div>
+
+            <aside className="story-card reveal-on-scroll">
+              <div className="mb-6">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-500 mb-4">Current focus</p>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800 text-white">
+                    <Code2 size={18} />
+                  </span>
+                  <span className="font-semibold text-zinc-900">Platform engineering</span>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 mb-4">
+                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500 mb-2">Core strength</p>
+                <p className="text-lg font-semibold leading-snug text-zinc-900">
+                  Designing systems that are reliable under load, not just impressive on paper.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 mb-4 text-sm">
+                <div className="rounded-2xl bg-zinc-950 text-white p-4">
+                  <div className="text-2xl font-bold mb-1">100K+</div>
+                  <div className="text-zinc-300">daily txns</div>
+                </div>
+                <div className="rounded-2xl border border-zinc-200 bg-white p-4">
+                  <div className="text-2xl font-bold mb-1">4x</div>
+                  <div className="text-zinc-600">speedup</div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-zinc-200 bg-white p-4 text-sm text-zinc-600 leading-relaxed">
+                I think in systems, not features — from database bottlenecks to API boundaries, event flows, latency constraints, and the operational decisions that keep products healthy.
+              </div>
+            </aside>
+          </div>
+        </div>
+      </header>
+
+      <section id="approach" className="approach-section bg-white border-y border-zinc-200">
+        <div className="section-rail" aria-hidden="true"><span>HOW I THINK</span><span>01 — 03</span></div>
+        <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
+          {[
+            { icon: <Database size={18} />, title: 'Data + platform design', text: 'I optimize schema design, query behavior, cache strategy, and throughput under real-world load.' },
+            { icon: <Server size={18} />, title: 'Product systems', text: 'I build backend foundations for APIs, tenant isolation, async workflows, and resilient event-driven services.' },
+            { icon: <Activity size={18} />, title: 'Ownership', text: 'I turn ambiguous problems into measurable systems with clear technical direction and operational thinking.' },
+          ].map((item) => (
+            <div key={item.title} className="service-card reveal-on-scroll">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-950 text-white">
+                {item.icon}
+              </div>
+              <h3 className="text-lg font-semibold text-zinc-900 mb-3">{item.title}</h3>
+              <p className="text-zinc-600 leading-relaxed">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="projects" className="max-w-6xl mx-auto px-6 py-24">
+        <div className="mb-16 max-w-3xl">
+          <p className="section-kicker text-[11px] uppercase tracking-[0.28em] text-zinc-500 mb-4">SELECTED WORK <span> / 04 CASES</span></p>
+          <h2 className="section-title text-3xl md:text-4xl font-bold tracking-tight text-zinc-900">
+            I solve the problems that appear after the prototype works.
+          </h2>
+          <p className="section-intro">A few chapters in the same story: making complex systems useful, resilient, and ready for real-world constraints.</p>
+        </div>
+
+        <div className="space-y-20">
+          <article id="case-01" className="project-panel reveal-on-scroll">
+            <div className="project-visual dark" data-scroll-depth="0.12">
+              <div className="flex items-center justify-between border-b border-zinc-800 pb-4 mb-6">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-400">CHAPTER 01 / THROUGHPUT</span>
+                <Database size={18} className="text-blue-400" />
+              </div>
+              <div className="space-y-5">
+                <div>
+                  <div className="flex justify-between text-[11px] font-mono text-zinc-400 mb-2">
+                    <span>Legacy query path</span>
+                    <span>4.0s</span>
+                  </div>
+                  <div className="w-full bg-zinc-800 rounded-full h-2"><div className="bg-red-500/75 h-2 rounded-full w-full"></div></div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-[11px] font-mono text-zinc-400 mb-2">
+                    <span>Optimized execution</span>
+                    <span className="text-emerald-400">1.0s</span>
+                  </div>
+                  <div className="w-full bg-zinc-800 rounded-full h-2"><div className="bg-emerald-500 h-2 rounded-full w-1/4"></div></div>
+                </div>
+              </div>
+              <div className="mt-7 rounded-2xl border border-zinc-700 bg-zinc-800/80 p-4 flex items-center gap-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-300">
+                  <Activity size={16} />
+                </div>
+                <div>
+                  <div className="text-sm font-medium text-zinc-100">100,000+ scans/day target</div>
+                  <div className="text-xs text-zinc-400">System readiness under product scale</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="project-copy">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700"><Database size={22} /></div>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">ESEAL</p>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 mb-5">
+                I turned a slow enterprise pipeline into a system that could keep up with demand.
+              </h3>
+              <p className="text-lg text-zinc-600 mb-6 leading-relaxed">
+                In a high-volume supply-chain environment, the real problem was not a missing feature — it was a data layer that could not carry the business at scale. I diagnosed the bottlenecks, redesigned the query path, and rebuilt the operating model around reliable throughput.
+              </p>
+              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+                <h4 className="font-semibold text-zinc-900 mb-2">What changed</h4>
+                <p className="text-zinc-600 leading-relaxed">
+                  I removed legacy N+1 query patterns, optimized slow data access across a large schema, and reworked the flow for high-throughput RFID processing without sacrificing reliability.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article id="case-02" className="project-panel reveal-on-scroll">
+            <div className="project-copy">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700"><Server size={22} /></div>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">3NGAGE</p>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 mb-5">
+                I built a multi-tenant product from the ground up and made isolation part of the architecture.
+              </h3>
+              <p className="text-lg text-zinc-600 mb-6 leading-relaxed">
+                This was a greenfield platform problem: a product must serve many organizations concurrently without cross-tenant leaks, noisy latency, or operational confusion. I designed the system so safety and predictability were enforced structurally, not bolted on later.
+              </p>
+              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+                <h4 className="font-semibold text-zinc-900 mb-2">What I delivered</h4>
+                <p className="text-zinc-600 leading-relaxed">
+                  I created the platform foundation, API contracts, and runtime model around tenant isolation, asynchronous ingestion, and resilient event handling.
+                </p>
+              </div>
+            </div>
+
+            <div className="project-visual dark" data-scroll-depth="0.12">
+              <div className="flex items-center gap-2 border-b border-zinc-800 pb-4 mb-6">
+                <div className="h-3 w-3 rounded-full bg-red-500"></div>
+                <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
+                <div className="h-3 w-3 rounded-full bg-green-500"></div>
+              </div>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="rounded-2xl border border-zinc-700 bg-zinc-800/80 p-4">
+                  <div className="text-[10px] uppercase tracking-[0.22em] text-zinc-400 mb-3">Control plane</div>
+                  <div className="h-14 rounded-xl bg-zinc-700/80"></div>
+                </div>
+                <div className="rounded-2xl border border-zinc-700 bg-zinc-800/80 p-4">
+                  <div className="text-[10px] uppercase tracking-[0.22em] text-zinc-400 mb-3">Async queue</div>
+                  <div className="h-14 rounded-xl bg-emerald-500/20 border border-emerald-400/30"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="case-03" className="project-panel reveal-on-scroll">
+            <div className="project-visual dark mono-block" data-scroll-depth="0.12">
+              <pre className="whitespace-pre-wrap leading-relaxed text-emerald-300">{`{
+  "status": "success",
+  "data": {
+    "engine": "two_tower_inference",
+    "latency_ms": 24,
+    "recommendations": 2,
+    "cache": "MISS"
+  }
+}`}</pre>
+            </div>
+
+            <div className="project-copy">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700"><Activity size={22} /></div>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">THE SCOUT</p>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 mb-5">
+                I like building products where intelligence has to be fast, explainable, and production-ready.
+              </h3>
+              <p className="text-lg text-zinc-600 mb-6 leading-relaxed">
+                This work blended data science, API design, and backend engineering into a single product story: recommendation systems with sub-25ms response times, reliable inference boundaries, and modern service composition.
+              </p>
+              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+                <h4 className="font-semibold text-zinc-900 mb-2">Why it mattered</h4>
+                <p className="text-zinc-600 leading-relaxed">
+                  The goal was not to build a clever model in isolation — it was to make AI useful in a live product, where speed, trust, and product fit matter more than novelty.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article id="case-04" className="project-panel reveal-on-scroll">
+            <div className="project-copy">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700"><Cpu size={22} /></div>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">HARDWARE CAPSTONE</p>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 mb-5">
+                I’m comfortable with systems that require precision at the lowest level.
+              </h3>
+              <p className="text-lg text-zinc-600 mb-6 leading-relaxed">
+                My FPGA work reinforced the same principle I apply in software: correctness matters more than complexity. I designed and validated a cryptographic accelerator with strict verification and deterministic performance expectations.
+              </p>
+              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+                <h4 className="font-semibold text-zinc-900 mb-2">Engineering mindset</h4>
+                <p className="text-zinc-600 leading-relaxed">
+                  Whether the problem sits at the database layer or the hardware boundary, I care about how a system behaves under constraints — not just whether it compiles.
+                </p>
+              </div>
+            </div>
+
+            <div className="project-visual light" data-scroll-depth="0.12">
+              <div className="chip-panel relative w-52 h-52 mx-auto border-4 border-zinc-700 bg-zinc-900 rounded-2xl shadow-lg flex items-center justify-center flex-col gap-2">
+                {[...Array(6)].map((_, i) => (
+                  <div key={`t${i}`} className="absolute top-0 -mt-3 w-full flex justify-evenly px-3"><div className="w-1.5 h-3 bg-zinc-400 rounded-t-sm" /></div>
+                ))}
+                {[...Array(6)].map((_, i) => (
+                  <div key={`b${i}`} className="absolute bottom-0 -mb-3 w-full flex justify-evenly px-3"><div className="w-1.5 h-3 bg-zinc-400 rounded-b-sm" /></div>
+                ))}
+                {[...Array(6)].map((_, i) => (
+                  <div key={`l${i}`} className="absolute left-0 -ml-3 h-full flex flex-col justify-evenly py-3"><div className="h-1.5 w-3 bg-zinc-400 rounded-l-sm" /></div>
+                ))}
+                {[...Array(6)].map((_, i) => (
+                  <div key={`r${i}`} className="absolute right-0 -mr-3 h-full flex flex-col justify-evenly py-3"><div className="h-1.5 w-3 bg-zinc-400 rounded-r-sm" /></div>
+                ))}
+                <div className="w-24 h-24 border border-zinc-600 bg-zinc-950 rounded-xl flex items-center justify-center flex-col">
+                  <span className="font-mono text-xs text-zinc-300 tracking-widest">AES-128</span>
+                  <span className="font-mono text-[10px] text-zinc-500 mt-1">VERIFIED</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="academics" className="background-section bg-white border-y border-zinc-200">
+        <div className="max-w-6xl mx-auto px-6 py-24">
+          <div className="flex items-center gap-3 mb-10">
+            <GraduationCap className="text-zinc-700" size={28} />
+            <h2 className="text-3xl font-bold tracking-tight text-zinc-900">Background</h2>
+          </div>
+
+          <div className="education-panel reveal-on-scroll p-8 rounded-3xl border border-zinc-200 bg-zinc-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500 mb-2">Education</p>
+              <h3 className="text-xl font-bold text-zinc-900 mb-2">National Institute of Technology (NIT) Srinagar</h3>
+              <p className="text-zinc-600 font-medium">B.Tech in Electronics & Communication Engineering</p>
+            </div>
+            <div className="px-4 py-2 bg-zinc-950 text-white rounded-full text-sm font-medium whitespace-nowrap">
+              Class of 2025
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer id="contact" className="contact-section max-w-6xl mx-auto px-6 pt-24 pb-12">
+        <div className="contact-panel reveal-on-scroll">
+          <div className="contact-copy">
+            <p className="contact-kicker">HAVE A SYSTEMS PROBLEM?</p>
+            <h2>Let’s make it<br /><span>work beautifully.</span></h2>
+            <p>For engineering roles, collaborations, or a thoughtful technical challenge, reach out directly.</p>
+          </div>
+          <div className="contact-actions">
+            <a href="mailto:shivxnmahajan@gmail.com" className="footer-action footer-action-primary">
+              <span><Mail size={18} aria-hidden="true" /> Start a conversation</span>
+              <ArrowUpRight size={18} aria-hidden="true" />
+            </a>
+            <a href="/ShivenMahajan.pdf" download="ShivenMahajan.pdf" className="footer-action footer-action-secondary">
+              <span><Download size={18} aria-hidden="true" /> Download resume</span>
+              <span className="file-type">PDF <span>↓</span></span>
+            </a>
+            <a href="https://github.com/shiven49" target="_blank" rel="noreferrer" className="contact-github">
+              Explore GitHub <ArrowUpRight size={15} aria-hidden="true" />
+            </a>
           </div>
           <div className="contact-bottomline">
-            <a href="mailto:shivxnmahajan@gmail.com">SHIVXNMAHAJAN@GMAIL.COM</a>
-            <span>HYDERABAD, INDIA <span className="contact-dot">✳</span> AVAILABLE FOR GREAT IDEAS</span>
+            <span>SHIVEN MAHAJAN <span className="contact-dot">/</span> SOFTWARE ENGINEER</span>
+            <span>© {currentYear}</span>
           </div>
         </div>
-      </section>
-
-      <footer className="site-footer page-width">
-        <a className="wordmark footer-wordmark" href="#top">
-          <span className="wordmark-mark">S</span>
-          <span>SHIVEN MAHAJAN</span>
-        </a>
-        <p>© Shiven Mahajan. Built with care.</p>
-        <div className="footer-socials">
-          <a href="https://github.com/shiven49" target="_blank" rel="noreferrer" aria-label="GitHub">
-            <GithubMark size={17} />
-          </a>
-          <a href="https://linkedin.com/in/shivenmahajan" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            <LinkedinMark size={17} />
-          </a>
-          <a href="mailto:shivxnmahajan@gmail.com" aria-label="Email">
-            <Mail size={17} aria-hidden="true" />
-          </a>
-        </div>
       </footer>
-    </main>
+    </div>
   );
 }
